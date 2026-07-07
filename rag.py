@@ -1,13 +1,3 @@
-"""
-Brique 3 — Le RAG qui orchestre tout.
-
-answer_question() déroule le pipeline complet :
-1. Modération de la question (agent modérateur).
-2. Si injection détectée -> refus immédiat, le LLM principal n'est JAMAIS contacté.
-3. Sinon -> retrieval des chunks pertinents.
-4. Construction du prompt système à trous (remplacement de {{Chunks}}).
-5. Appel au LLM de génération avec messages system/user.
-"""
 
 import os
 from dotenv import load_dotenv
