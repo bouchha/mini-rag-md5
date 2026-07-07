@@ -1,4 +1,4 @@
-# Rime : Modération + Génération + Orchestration
+# Modération + Génération + Orchestration
 
 
 Ma partie couvre tout le pipeline **après** le retrieval : une fois que Fatima
