@@ -1,22 +1,4 @@
-"""
-Brique 2 — L'agent modérateur.
 
-Interroge un modèle de classification de sécurité (famille "safeguard" de Groq)
-pour décider si une question est une tentative de prompt injection, AVANT
-de contacter le LLM principal du RAG.
-
-Pourquoi un modèle dédié plutôt qu'une consigne dans le prompt du RAG ?
-- Séparation des responsabilités : le prompt du RAG reste concentré sur la tâche
-  (répondre à partir des chunks) au lieu de devenir un prompt fourre-tout qui essaie
-  aussi de se défendre contre les attaques.
-- Un modèle spécialisé dans la classification de sécurité est entraîné et évalué
-  spécifiquement pour ça : plus fiable qu'une simple instruction texte noyée dans
-  un prompt système par ailleurs long.
-- Défense en profondeur : même si l'utilisateur trouve un moyen de contourner le
-  prompt du RAG, il doit AUSSI tromper un second modèle indépendant.
-- On peut faire ce contrôle AVANT même de construire le prompt principal (donc
-  avant de gaspiller un appel au LLM de génération, plus coûteux).
-"""
 
 import json
 from groq import Groq
